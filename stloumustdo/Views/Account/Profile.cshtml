@@ -1,0 +1,136 @@
+﻿@* Views/Account/Profile.cshtml *@
+
+@model stloumustdo.Models.UserProfileViewModel
+@{
+    ViewData["Title"] = "User Profile";
+    
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <h2>@ViewData["Title"]</h2>
+
+            <div class="col-md-2">
+                <img src="@Model.ProfileImage"
+                     alt="" class="img-rounded img-responsive" />
+            </div>
+            <div class="col-md-4">
+                <h3>@Model.Name</h3>
+                <p>
+                    <i class="glyphicon glyphicon-envelope"></i> @Model.EmailAddress
+                </p>
+                <p>
+                    User Number: @Model.BucketId
+                </p>
+            </div>
+            <table class="table">
+    <thead>
+        <tr class="table-primary">
+        <th>
+            Cafe: 
+        </th>
+        <th class="text-center">
+            Neighborhood: 
+        </th>
+        </tr>
+    </thead>
+@foreach (var item in Model.BucketList.Cafes)
+    {
+    <tr>
+        <td>
+         @item.CafeName
+        </td>
+        <td>
+         @item.Neighborhood
+        </td>
+    </tr>
+    }
+ </table>
+ <table class="table">
+
+<thead >
+<tr class="table-primary">
+        <th class="px-4">
+            Restaurant: 
+        </th>
+        <th class="text-center">
+            Neighborhood: 
+        </th>
+</tr>
+
+</thead>
+<tbody>
+@foreach (var item in Model.BucketList.Restaurants)
+    {
+    <tr>
+        <td>
+        @item.RestaurantName
+    </td>
+    <td>
+        @item.Neighborhood
+    </td>
+    </tr>
+    }
+
+</tbody>
+</table>
+ <table class="table">
+
+<thead>
+<tr class="table-primary">
+        <th>
+            Outdoor Activity: 
+        </th>
+        <th class="text-center">
+            Distance from STL: 
+        </th>
+</tr>
+
+</thead>
+<tbody>
+@foreach (var item in Model.BucketList.Outdoors)
+    {
+    <tr>
+        <td>
+        @item.OutdoorName
+    </td>
+    <td>
+        @item.DistanceFromSTL
+    </td>
+    </tr>
+    }
+
+</tbody>
+</table>
+ <table class="table">
+
+<thead>
+<tr class="table-primary">
+        <th>
+            Local Attraction: 
+        </th>
+        <th class="text-center">
+            Neighborhood: 
+        </th>
+</tr>
+
+</thead>
+<tbody>
+@foreach (var item in Model.BucketList.Attractions)
+    {
+    <tr>
+        <td>
+        @item.AttractionName
+    </td>
+    <td>
+        @item.Neighborhood
+    </td>
+    </tr>
+    }
+
+</tbody>
+</table>
+        </div>
+    </div>
+</div>

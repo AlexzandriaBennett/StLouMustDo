@@ -1,0 +1,49 @@
+﻿@model stloumustdo.POCO.RandomDay
+@{
+    ViewData["Title"] = "Surpise";
+}
+
+<h1>Random Day</h1>
+<p>Here are four great options for you to do today</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Cafe
+            </th>
+            <th>
+                Restaurant
+            </th>
+            <th>
+                Outdoor Adventure
+            </th>
+            <th>
+                Local Attraction
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>
+                <a class="text-decoration-none" title="Website" target="_blank"  href= @Model.Cafe.WebsiteUrl>@Model.Cafe.CafeName</a>
+                @*@Html.DisplayFor(modelItem => Model.Cafe.CafeName) *@
+            </td>
+            <td>
+                <a class="text-decoration-none" title="Website" target="_blank"  href= @Model.Restaurant.WebsiteUrl>@Model.Restaurant.RestaurantName</a>
+                @*@Html.DisplayFor(modelItem => Model.Restaurant.RestaurantName)*@
+            </td>
+            <td>
+                <a class="text-decoration-none" title="Website" target="_blank"  href= @Model.StatewideOutdoors.OutdoorUrl>@Model.StatewideOutdoors.OutdoorName</a>
+                @*@Html.DisplayFor(modelItem => Model.StatewideOutdoors.OutdoorName)*@
+            </td>
+            <td>
+                <a class="text-decoration-none" title="Website" target="_blank"  href= @Model.LocalAttraction.AttractionUrl>@Model.LocalAttraction.AttractionName</a>
+                @*@Html.DisplayFor(modelItem => Model.LocalAttraction.AttractionName)*@
+            </td>
+        </tr>
+    </tbody>
+</table>
+

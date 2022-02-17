@@ -1,0 +1,90 @@
+﻿@model stloumustdo.POCO.UserOutdoorList
+
+@{
+    ViewData["Title"] = "Index";
+    var outdoorList = Model.Outdoors;
+    var boolList = Model.HasOutdoorItem.ToList();
+    var i = 0;
+}
+
+<h1>Statewide Adventures</h1>
+
+<div class="container d-flex flex-wrap">
+ @foreach(var item in outdoorList){
+
+
+<div class="card" style="width: 18rem;">
+  <img src="https://source.unsplash.com/random/300x300/?@item.OutdoorName" class="card-img-top" alt="@item.OutdoorName">
+  <div class="card-body">
+    <h5 class="card-title"> <a class="text-decoration-none" title="Website" target="_blank"  href=@item.OutdoorUrl>@item.OutdoorName</a></h5>
+    <p class="card-text">Distance from St. Louis: @item.DistanceFromSTL</p>
+    <p class="card-text">@item.Address</p>
+    @if(boolList[i] == false)
+    {
+        <a class="btn btn-primary" role="button" aria-pressed="true" asp-area="" asp-action="Add" asp-route-id="@item.Id">Add</a>
+        }
+        else
+        {
+        <p class="btn btn-secondary disabled">Added!</p>
+        }
+                @{
+                    i++;
+                }
+            </div>
+</div>
+ }
+
+</div>
+
+
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OutdoorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DistanceFromSTL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OutdoorUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutdoorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DistanceFromSTL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutdoorUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+              @if (User.Identity.IsAuthenticated)
+                {
+                    <td>
+
+                <a asp-action="Add" asp-route-id="@item.Id">Add</a> |
+              <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+                }
+        </tr>
+}
+    </tbody>
+</table>*@

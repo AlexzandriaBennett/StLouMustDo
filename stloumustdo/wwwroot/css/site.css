@@ -1,0 +1,32 @@
+/*
+header{
+    border: 3px dashed aqua;
+}
+
+main {
+    border: 3px dashed green;
+}
+
+footer {
+    border: 3px dashed yellow;
+}*/
+
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}

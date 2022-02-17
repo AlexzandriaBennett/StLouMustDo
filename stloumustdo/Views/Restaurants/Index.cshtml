@@ -1,0 +1,114 @@
+﻿@model stloumustdo.POCO.UserRestaurantList;
+
+@{
+    ViewData["Title"] = "Index";
+    var restaurantList = Model.Restaurants;
+    var boolList = Model.HasRestaurant.ToList();
+    var i = 0;
+    
+}
+
+<h1>Restaurants</h1>
+
+<div class="container d-flex flex-wrap">
+ @foreach(var item in restaurantList){
+
+     
+    Random rand = new Random();
+    int number = rand.Next(0, 84);
+
+<div class="card" style="width: 18rem;">
+  <img src="https://source.unsplash.com/collection/465338/300x300/?@item.Id" class="card-img-top" alt="@item.RestaurantName">
+  <div class="card-body">
+    <h5 class="card-title"> <a class="text-decoration-none" title="Website" target="_blank"  href=@item.WebsiteUrl>@item.RestaurantName</a></h5>
+    <p class="card-text">@item.Neighborhood</p>
+    <p class="card-text">@item.RestaurantType</p>
+    <p class="card-text">@item.PriceRange</p>
+    @if(boolList[i] == false)
+    {
+        <a class="btn btn-primary" role="button" aria-pressed="true" asp-area="" asp-action="Add" asp-route-id="@item.Id">Add</a>
+        }
+        else
+        {
+        <p class="btn btn-secondary disabled">Added!</p>
+        }
+                @{
+                    i++;
+                }
+            </div>
+</div>
+ }
+
+</div>
+
+
+
+
+
+
+
+
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RestaurantName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RestaurantType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceRange)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Neighborhood)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WebsiteUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResturauntAddress)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RestaurantName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RestaurantType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceRange)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Neighborhood)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WebsiteUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResturauntAddress)
+            </td>
+            @if (User.Identity.IsAuthenticated)
+                {
+                    <td>
+
+                <a asp-action="Add" asp-route-id="@item.Id">Add</a> |
+              <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+                }
+        </tr>
+}
+    </tbody>
+</table>
+*@

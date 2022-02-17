@@ -1,0 +1,98 @@
+﻿@model stloumustdo.POCO.UserCafeLists;
+
+@{
+    ViewData["Title"] = "Index";
+    var cafeList = Model.Cafes;
+    var boolList = Model.HasCafe.ToList();
+    var i = 0;
+}
+
+<h1>Cafes</h1>
+@*@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+ }*@
+
+
+<div class="container d-flex flex-wrap">
+ @foreach(var item in cafeList){
+
+
+<div class="card" style="width: 18rem;">
+  <img src="https://source.unsplash.com/random/300x300/?@item.CafeName" class="card-img-top" alt="@item.CafeName">
+  <div class="card-body">
+    <h5 class="card-title"> <a class="text-decoration-none" title="Website" target="_blank"  href=@item.WebsiteUrl>@item.CafeName</a></h5>
+    <p class="card-text">@item.Neighborhood</p>
+    <p class="card-text">@*@item.Address*@</p>
+    @if(boolList[i] == false)
+    {
+        <a class="btn btn-primary" role="button" aria-pressed="true" asp-area="" asp-action="Add" asp-route-id="@item.Id">Add</a>
+        }
+        else
+        {
+        <p class="btn btn-secondary disabled">Added!</p>
+        }
+                @{
+                    i++;
+                }
+            </div>
+</div>
+ }
+
+</div>
+
+
+
+
+
+@*
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CafeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Neighborhood)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WebsiteUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CafeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Neighborhood)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WebsiteUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+                @if (User.Identity.IsAuthenticated)
+                {
+              <td>
+
+                <a asp-action="Add" asp-route-id="@item.Id">Add</a> |
+              <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+           </td>
+            }
+        </tr>
+}
+    </tbody>
+</table>*@
+
