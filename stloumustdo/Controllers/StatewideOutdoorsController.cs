@@ -106,8 +106,6 @@ namespace stloumustdo.Controllers
                 return View(response);
             }
 
-            //-------------------------------old--------------------------------------
-            //return View(await _context.StatewideOutdoors.ToListAsync());
         }
 
         // GET: StatewideOutdoors/Details/5

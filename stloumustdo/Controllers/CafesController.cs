@@ -108,40 +108,6 @@ namespace stloumustdo.Controllers
                 }
                 return View(response);
             }
-
-            //-----------------------------old-------------------------------------------
-                // return View(await _context.Cafes.ToListAsync());
-
-                //var response = new UserCafeLists();
-                //response.HasCafe = new List<bool>();
-                //response.Cafes = await _context.Cafes.ToListAsync();
-
-                //var email = User.FindFirst(c => c.Type == ClaimTypes.Email)?.Value.ToString();
-
-                //var userFinder = new UserFinder();
-
-                //var response2 = await userFinder.ReturnUserProfileAsync(email, _context, User);
-                //var userCafeList = response2.BucketList.Cafes;
-
-
-
-                //foreach(var cafe in response.Cafes)
-                //{
-                //    var isMatched = false;
-                //    foreach(var userCafe in userCafeList)
-                //    {
-                //        if (cafe.CafeName == userCafe.CafeName)
-                //        {
-                //            isMatched = true;
-                //            //response.HasCafe.Add(true);
-                //        }
-                //    }
-                //    response.HasCafe.Add(isMatched);
-                //    //TODO: this is the most inefficient way. How do I improve this?? 
-                //}
-
-                //return View(response);
-            //----------------------------finshed-------------------------------------------
         }
 
         // GET: Cafes/Details/5

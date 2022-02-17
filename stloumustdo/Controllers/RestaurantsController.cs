@@ -60,26 +60,7 @@ namespace stloumustdo.Controllers
 
             return RedirectToAction(nameof(Index));
 
-            //------------------------------old-----------------------------------------------------------
-            //var restaurant = await _context.Restaurants
-            //    .FirstOrDefaultAsync(m => m.Id == id);
-
-            //var tempUserEmail = User.FindFirst(c => c.Type == ClaimTypes.Email)?.Value;
-
-            //var thisuser = await _context.UserProfileViewModel.FirstOrDefaultAsync(m => m.EmailAddress == tempUserEmail);
-            //var thisUsersBucketList = await _context.BucketList.FirstOrDefaultAsync(c => c.BucketId == thisuser.BucketId);
-            //thisUsersBucketList.Restaurants.Add(restaurant);
-
-            ////TODO: Check if Cafe is already on the list and dont let it get added again
-
-
-            //await _context.SaveChangesAsync();
-
-
-
-            //return RedirectToAction(nameof(Index));
-
-            //----------------------finished-------------------------------------------------------------------
+           
         }
 
         // GET: Restaurants
@@ -128,10 +109,6 @@ namespace stloumustdo.Controllers
                 }
                 return View(response);
             }
-
-            //-------------------------old----------------------------------------------
-            //return View(await _context.Restaurants.ToListAsync());
-            //-----------------------finished------------------------------------------
         }
 
         // GET: Restaurants/Details/5

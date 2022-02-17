@@ -107,8 +107,6 @@ namespace stloumustdo.Controllers
             }
 
 
-            //-------------------------------old------------------------------------------
-            //return View(await _context.LocalAttractions.ToListAsync());
         }
 
         // GET: LocalAttractions/Details/5

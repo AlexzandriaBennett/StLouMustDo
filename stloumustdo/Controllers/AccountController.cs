@@ -14,7 +14,7 @@ namespace stloumustdo.Controllers
 {
     public class AccountController : Controller
     {
-        
+
 
         private readonly stloumustdoContext _context;
 
@@ -30,8 +30,8 @@ namespace stloumustdo.Controllers
                 .Build();
 
             await HttpContext.ChallengeAsync(Auth0Constants.AuthenticationScheme, authenticationProperties);
-            
-            
+
+
         }
 
         public async Task<RedirectToActionResult> Redirect()
@@ -62,57 +62,6 @@ namespace stloumustdo.Controllers
             return View(response);
 
 
-            //if (UserExists(email))
-            //{
-            //    var user = await _context.UserProfileViewModel
-            //        .FirstOrDefaultAsync(m => m.EmailAddress == email);
-
-
-            //    //var tempBucketList = await _context.BucketList.FirstOrDefaultAsync(m => m.UserKey == tempUserName);
-            //    //_context.Entry(tempBucketList).Collection(x => x.Restaurants).Load();
-
-            //    var tempBucketList = await _context.BucketList.FirstOrDefaultAsync(m => m.BucketId == user.BucketId);
-            //    _context.Entry(tempBucketList).Collection(x => x.Cafes).Load();
-            //    _context.Entry(tempBucketList).Collection(x => x.Restaurants).Load();
-            //    _context.Entry(tempBucketList).Collection(x => x.Attractions).Load();
-            //    _context.Entry(tempBucketList).Collection(x => x.Outdoors).Load();
-
-            //    user.BucketList = tempBucketList;
-
-            //    //_context.Entry(thisuser).Collection(x => x.BucketList.Cafes).Load();
-            //    //_context.Entry(user).Collection(x => x.BucketList).Load();
-            //    return View(user);
-
-            //}
-
-            //else
-            //{
-            //    var thisUser = new UserProfileViewModel();
-            //    thisUser.Name = User.Identity.Name;
-            //    thisUser.EmailAddress = User.FindFirst(c => c.Type == ClaimTypes.Email)?.Value;
-            //    thisUser.ProfileImage = User.FindFirst(c => c.Type == "picture")?.Value;
-            //    var usersBucket = new BucketList();
-            //    usersBucket.Restaurants = new List<Restaurants>();
-
-            //    usersBucket.Cafes = new List<Cafe>();
-
-            //    usersBucket.Outdoors = new List<StatewideOutdoors>();
-
-            //    usersBucket.Attractions = new List<LocalAttraction>();
-
-            //    thisUser.BucketList = usersBucket;
-            //    _context.Add(thisUser);
-            //    await _context.SaveChangesAsync();
-
-            //    return View(thisUser);
-
-
         }
-        
-
-        //    private bool UserExists(string email)
-        //{
-        //    return _context.UserProfileViewModel.Any(e => e.EmailAddress == email);
-        //}
     }
 }
